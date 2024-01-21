@@ -52,13 +52,26 @@
 					<option>UAE</option>
 				</select>
 			</div>
-			<div class="small">Forgot Password? <a href="forgot_pass.php">Click Here</a></div><br>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block btn-lg" name="sign_in">Sign in</button>
+				<label>Gender</label>
+				<select class="form-control" name="user_country" required>
+					<option disabled="">Select your Gender</option>
+					<option>Male</option>
+					<option>Female</option>
+					<option>Others</option>
+				</select>
 			</div>
-			<!-- <?php //include 'signin_user.php'; ?> -->
+			<div class="form-group text-center">
+				<label class="checkbox-inline">
+					<input type="checkbox" required>I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>
+				</label>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary btn-block btn-lg" name="sign_up">Sign up</button>
+			</div>
+			<!-- <?php //include 'signup_user.php'; ?> -->
 		</form>
-		<div class="text-center small" style="color: #67428B;">Don't have an account? <a href="signup.php">Create one</a></div>
+		<div class="text-center small" style="color: #67428B;">Already have an account? <a href="signin.php">Signin Here</a></div>
 	</div>
 
 
