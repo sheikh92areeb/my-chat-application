@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php 
+	session_start();
+	include 'assits/include/connection.php';
+
+	if (!isset($_SESSION['user_email'])) 
+	{
+		header('location: signin.php');
+	}
+?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,6 +20,8 @@
 	<!-- ===== BOOTSTRAP LINK STARTS ===== -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- ===== BOOTSTRAP LINK ENDS ===== -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="assits/css/home.css">
 </head>
 <body>
 	<div class="container main-section">
@@ -106,8 +117,8 @@
 								{
 									echo "
 										<li>
-											<div class='right-side-chat'>
-												<span>$username <small>$msg_date</small></span>
+											<div class='rightside-right-chat'>
+												<span>$username <small>$msg_date</small></span><br><br>
 												<p>$msg_content</p>
 											</div>
 										</li>
@@ -117,8 +128,8 @@
 								{
 									echo "
 										<li>
-											<div class='right-side-chat'>
-												<span>$username <small>$msg_date</small></span>
+											<div class='rightside-left-chat'>
+												<span>$username <small>$msg_date</small></span><br><br>
 												<p>$msg_content</p>
 											</div>
 										</li>
@@ -133,8 +144,8 @@
 					<div class="col-md-12 right-chat-textbox">
 						<form action="#" method="post">
 							<input type="text" name="msg_content" placeholder="write your message ....." autocomplete="off">
-							<button type="submit" class="btn" name="submit">
-								<i class="fa fa-telegram" aria-hidden="true"></i>
+							<button type="submit" class="btn" name="submit">								
+								<i class="fa-brands fa-telegram" aria-hidden="true"></i>
 							</button>
 						</form>
 					</div>
@@ -173,8 +184,22 @@
 	?>
 
 	<!-- ===== JS CDN LINKS ===== -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 	<!-- ===== JS CDN LINKS ===== -->
+
+
+	<script type="text/javascript">
+		$('#scrolling_to_bottom').animate({
+			scrollTop: $('#scrolling_to_bottom').get(0).scrollHeight}, 1000);
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() 
+		{
+			var height = $(window).height();
+			$('.left-chat').css('height', (height - 92) + 'px');
+			$('.right-header-contentChat').css('height', (height - 163) + 'px');
+		});
+	</script>
 </body>
 </html>
