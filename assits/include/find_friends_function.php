@@ -41,7 +41,7 @@
 
 			if (isset($_POST['add'])) 
 			{
-				
+				echo "<script>window.open('../../home.php?user_name=$user_name', '_self')</script>";
 			}		
 
 		}
